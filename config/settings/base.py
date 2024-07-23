@@ -17,8 +17,6 @@ CUSTOM_APPS = [
     # USER DEFINED APPS
     "apps.country",
     "apps.city",
-    "apps.rating",
-    "apps.satisfaction_level",
     "apps.tourist_detail",
     "apps.travel_info",
 ]

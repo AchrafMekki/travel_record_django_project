@@ -11,8 +11,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ("country", "0001_initial"),
-        ("rating", "0001_initial"),
-        ("satisfaction_level", "0001_initial"),
         ("tourist_detail", "0001_initial"),
     ]
 
@@ -20,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="TravelInfo",
             fields=[
-                ("travel_id", models.AutoField(primary_key=True, serialize=False)),
+                ("travel_id", models.AutoField(primary_key=True, serialize=True)),
                 ("year", models.DateField()),
                 ("hotel", models.CharField(blank=True, max_length=30, null=True)),
                 (
@@ -32,7 +30,7 @@ class Migration(migrations.Migration):
                         size=None,
                     ),
                 ),
-                ("total_duration", models.DurationField()),
+                ("total_duration", models.CharField()),
                 ("total_cost", models.IntegerField(blank=True, null=True)),
                 (
                     "currency",
@@ -70,19 +68,6 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         to="country.country",
-                    ),
-                ),
-                (
-                    "rating",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="rating.rating"
-                    ),
-                ),
-                (
-                    "satisfaction_level",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to="satisfaction_level.satisfactionlevel",
                     ),
                 ),
                 (
