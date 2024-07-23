@@ -13,5 +13,5 @@ def travel_info(request):
     return render(request, "info.html")
 
 
-# class TravelView(TemplateView):
-#     template_name = "tourist_detail/details_html"
+class OurStory(TemplateView):
+     template_name = "about_us.html"

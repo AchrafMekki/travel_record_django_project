@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .tourist-container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .tourist-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .tourist-detail {
+            margin-bottom: 5px;
+        }
+        .tourist-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+{% for tourist in tourists %}
+<div class="tourist-container">
+    <div class="tourist-header">{{ tourist.first_name }} {{ tourist.last_name }}</div>
+    <div class="tourist-detail">
+        <span class="tourist-label">Gender:</span> {{ tourist.gender }}
+    </div>
+    <div class="tourist-detail">
+        <span class="tourist-label">Age:</span> {{ tourist.age }}
+    </div>
+    <div class="tourist-detail">
+        <span class="tourist-label">Occupation:</span> {{ tourist.occupation }}
+    </div>
+    <div class="tourist-detail">
+        <span class="tourist-label">Nationality:</span> {{ tourist.nationality }}
+    </div>
+    <div class="tourist-detail">
+        <span class="tourist-label">Languages:</span> 
+        {% for language in tourist.language %}
+            {{ language }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+
+</body>
+</html>
